@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$dark_color : #1A2544;
+$green_color : #0F6D3F;
+$orange_color : #F4A121;
+
+*, *::before, *::after{
+    font-family: 'Poppins', sans-serif;
+}
+.ff-nova{
+    font-family: 'Nova Script', 'Poppins',sans-serif !important;
+}
+
+// ----------- Animation
+@keyframes ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(15deg);
+    }
+    20% {
+      transform: rotate(-10deg);
+    }
+    30% {
+      transform: rotate(15deg);
+    }
+    40% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+    60% {
+      transform: rotate(-5deg);
+    }
+    70% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+}
+
+// ----------- Coloring
+.color-{
+    &green{
+        color: $green_color !important;
+        &-bg{
+            background-color: $green_color !important;
+        }
+    }
+    &dark{
+        color: $dark_color !important;
+        &-bg{
+            background-color: $dark_color !important;
+        }
+    }
+    &orange{
+        color: $orange_color !important;
+        &-bg{
+            background-color: $orange_color !important;
+        }
+    }
+}
+
+
+// ----------- Button
+.btn-{
+    &green{
+        background-color: $green_color;
+        color: #fff;
+        padding: 14px 24px;
+        border-radius: 99px;
+        white-space: nowrap;
+        &:hover{
+            background-color: #0c5833;
+            color: #fff;
+        }
+    }
+    &orange{
+        background-color: $orange_color;
+        color: $dark_color;
+        padding: 14px 24px;
+        border-radius: 99px;
+        white-space: nowrap;
+        &:hover{
+            background-color: #ee9613;
+            color: $dark_color;
+        }
+    }
+}
+
+// Floating Whatsapp
+.float-wa{
+    animation: ring 2s infinite;
+}
+// ----------- Stepping
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 40px; // Menggunakan gap untuk jarak antar langkah
+  
+    .step {
+        position: relative;
+        text-align: center;
+        color: #223428;
+        flex: 1;
+        min-width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        &::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateY(-50%);
+            width: 110%;
+            border: 2px dashed #cecece;
+            height: 4px;
+            z-index: -1;
+        }
+    
+        &:last-child::before {
+            display: none;
+        }
+    
+        .step-number {
+            background-color: #E2F3EB;
+            color: #223428;
+            border-radius: 15px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    
+        .step-title {
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    
+        .step-description {
+            padding: 0px 1.4em;
+            font-size: 14px;
+            color: #818181;
+            margin-top: 5px;
+        }
+    }
+}
+  
+@media (max-width: 900px) {
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    
+        .step::before {
+            display: none;
+        }
+    }
+}
+
+// ----------- Embed YT
+.embed-yt {
+    position: relative;
+    width: 100%; // Lebar penuh kontainer
+    min-width: 20em;
+    padding-bottom: 26.25%; // Rasio 16:9 berdasarkan lebar
+    border-radius: 20px;
+    overflow: hidden;
+    &.landing{
+        padding-bottom: 42%;
+    }
+    @media (max-width: 1022px){
+        padding-bottom: 56.8%;
+        &.landing{
+            padding-bottom: 56.8%;
+        }
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+}
+
+
+// ----------- Divider
+.divider{
+    border: 0px solid transparent !important;
+    width: 5em;
+    height: 7.5px;
+    background: #cecece;
+}
+// ----------- Cursor
+.cursor-pointer{
+    cursor: pointer !important;
+}
+// ----------- Whitespace
+.whitespace-nowrap{
+    white-space: nowrap !important;
+}
+
+// ----------- Package
+.package-box{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; // Jarak antara item
+    
+    @media (min-width: 769px) and (max-width: 1023px) {
+        grid-template-columns: repeat(2, 1fr); // Tampilkan 2 item
+        > div{
+            margin-bottom: 3em;
+        }
+    }
+    // Media query untuk memastikan responsivitas
+    @media (max-width: 768px) {
+        // grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: 1fr;
+        > div{
+            margin-bottom: 6em;
+            &:last-child{
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+    }
+
+    & > div:only-child {
+        justify-self: center;
+    }
+}
+// ----------- Promo
+.promo-btn{
+    @media (max-width: 768px){
+        width: 100%;
+    }
+}
+// ----------- Menu
+body{
+    overflow-x:hidden !important;
+}
+header{
+    position: sticky !important;
+    @media (max-width: 768px) {
+        position: inherit !important;
+    }
+}
+.menu-box{
+    display: flex;
+    @media (max-width: 768px) {
+        display: none !important;
+        padding: 2em;
+        background-color: #E2F3EB;
+        flex-direction: column !important;
+        position: fixed;
+        align-items:end !important;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        right: 0;
+        min-width: 20em;
+        width: 80%;
+        transform: translateX(100%);
+        transition: all 0.4s ease-in-out;
+        border-bottom-left-radius: 50px;
+        &.active{
+            display: flex !important;
+            transition: all 0.4s ease-in-out;
+            transform: translateX(0);
+        }
+    }
+
+}
+.menu-item{
+    color: $dark_color;
+    text-decoration: none;
+    &.active,&:hover{
+        color: $green_color;
+    }
+}
+
+// ----------- FAQ
+.faq-box{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    .faq-item{
+        .faq-header{
+            .iconify{
+                transition: all 0.5s ease-in-out;
+            }
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            gap: 1em;
+            justify-content: space-between;
+            padding: 0.8em 1.6em;
+            border: 4px solid #DBDEE4;
+            background-color: #fff;
+            
+        }
+        .faq-content{
+            display: none;
+            padding: 0.8em 1.6em;
+            background-color: #E2F3EB;
+        }
+        
+        &.active{
+            .faq-header{
+                border-color: $green_color;
+                .iconify{
+                    color: $green_color;
+                    transition: all 0.5s ease-in-out;
+                    transform: rotate(45deg);
+                }
+            }
+            .faq-content{
+                display: block;
+            }
+        }
+    }
+}
+
+// ---------------- Landing Page
+// -------- Promo
+.promo{
+    position: sticky;
+    bottom: 0;
+    z-index: 20;
+    &.landing{
+        flex-wrap: wrap !important;
+        .promo-desc{
+            max-width: 10em;
+        }
+    }
+    @media (max-width:800px) {
+        position: normal;
+        &-box{
+            flex-wrap: nowrap !important;
+            &.landing{
+                flex-wrap: wrap !important;
+                .promo-desc{
+                    max-width: 5em;
+                }
+                .promo-btn{
+                    display: block;
+                    width: 100% !important;
+                }
+            }
+        }
+        &-title{
+            font-size: 15px !important;
+        }
+        &-disc{
+            font-size: 16px !important;
+        }
+        &-desc{
+            font-size: 15px !important;
+        }
+        &-countdown{
+            font-size: 15px !important;
+        }
+        &-btn{
+            font-weight: 500 !important;
+            padding: 0.5em 1em;
+            font-size: 15px !important;
+            width: fit-content !important;
+        }
+    }
+}
