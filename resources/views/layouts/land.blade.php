@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
-    
+    @include('partials.float')
     @yield('content')
 
     <!-- Jquery -->

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
 <body>
-    
+    @include('partials.float')
     @include('partials.head')
     <main>
         @yield('content')
