@@ -99,7 +99,7 @@
     </div>
 </section>
 
-<section>
+{{-- <section>
     <div class="container py-5" id="proses">
         <h2 class="mb-5 fw-semibold" style="max-width: 13em">{{setting('web.proses_title')}}</h2>
         <div class="steps-container">
@@ -137,7 +137,7 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}
 
 <section class="color-green-bg text-white pb-5" id="harga">
     <div class="container py-5 mb-5 text-center">
