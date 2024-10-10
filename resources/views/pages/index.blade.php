@@ -151,7 +151,7 @@
         {{-- <div class="owl-carousel owl-theme package-carousel" style="margin-top: -7em"> --}}
         <div class="package-box">
             @foreach ($packages as $pkg)
-            <div class="bg-light border rounded-3 p-3" style="max-width: 40em; margin-top:2em;">
+            <div class="bg-light border rounded-3 p-3 {{$loop->index > 2 ? 'margin-top-wrap' : '' }}" style="max-width: 40em; margin-top:2em;">
                 <div class="" style="margin-top: -30%">
                     <div class="position-relative rounded-3 overflow-hidden mb-3">
                         <img src="{{strlen($pkg->image) > 3 ? Voyager::image($pkg->image) : 'https://placehold.co/720x480'}}" alt="Image Package" class="d-block w-100" style="aspect-ratio:16/9; object-fit:cover;">

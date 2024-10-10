@@ -190,8 +190,13 @@
 
 .package-box {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 16px;
+  justify-items: center; /* Pastikan item berada di tengah */
+  justify-content: center; /* Untuk item terakhir yang tersisa di tengah */
+}
+.package-box .margin-top-wrap {
+  margin-top: 6.3em !important;
 }
 @media (min-width: 769px) and (max-width: 1023px) {
   .package-box {
@@ -199,6 +204,9 @@
   }
   .package-box > div {
     margin-bottom: 3em;
+  }
+  .package-box .margin-top-wrap {
+    margin-top: 2em !important;
   }
 }
 @media (max-width: 768px) {
@@ -211,9 +219,20 @@
   .package-box > div:last-child {
     margin-bottom: 0px;
   }
+  .package-box .margin-top-wrap {
+    margin-top: 2em !important;
+  }
+}
+@media (max-width: 480px) {
+  .package-box .margin-top-wrap {
+    margin-top: 2em !important;
+  }
 }
 .package-box > div:only-child {
   justify-self: center;
+}
+.package-box > div:nth-child(3n+1) {
+  justify-self: center; /* Jika ada item terakhir yang tersisa, posisikan di tengah */
 }
 
 @media (max-width: 768px) {

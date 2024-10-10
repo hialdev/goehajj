@@ -215,13 +215,23 @@ $orange_color : #F4A121;
 // ----------- Package
 .package-box{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 16px; // Jarak antara item
+    justify-items: center; /* Pastikan item berada di tengah */
+    justify-content: center; /* Untuk item terakhir yang tersisa di tengah */
     
+    .margin-top-wrap{
+        margin-top: 6.3em !important;
+    }
+
     @media (min-width: 769px) and (max-width: 1023px) {
         grid-template-columns: repeat(2, 1fr); // Tampilkan 2 item
         > div{
             margin-bottom: 3em;
+        }
+
+        .margin-top-wrap{
+            margin-top: 2em !important;
         }
     }
     // Media query untuk memastikan responsivitas
@@ -234,13 +244,24 @@ $orange_color : #F4A121;
                 margin-bottom: 0px;
             }
         }
+
+        .margin-top-wrap{
+            margin-top: 2em !important;
+        }
     }
 
     @media (max-width: 480px) {
+        .margin-top-wrap{
+            margin-top: 2em !important;
+        }
     }
 
     & > div:only-child {
         justify-self: center;
+    }
+
+    & > div:nth-child(3n+1) { 
+        justify-self: center; /* Jika ada item terakhir yang tersisa, posisikan di tengah */
     }
 }
 // ----------- Promo
