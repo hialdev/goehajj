@@ -191,7 +191,40 @@
         </div>
     </div>
 </section>
-
+@if(count($timelines) > 0)
+<section class="mt-4">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <h6 class="text-primary">{{setting('site.timeline_subtitle')}}</h6>
+                <h4>{{setting('site.timeline_title')}}</h4>
+            </div>
+            <div class="col-12">
+                <table class="table table-responsive rounded-4 table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Tanggal Masehi</th>
+                            <th>Tanggal Hijriah</th>
+                            <th>Aktifitas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($timelines as $timeline)
+                        <tr>
+                            <td>{{$loop->index+1}}</td>
+                            <td>{{ Carbon\Carbon::parse($timeline->tgl_masehi)->format('d M Y') }}</td>
+                            <td>{{$timeline->tgl_hijriah}}</td>
+                            <td>{{$timeline->aktifitas}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+@endif
 <section class="bg-light mt-4" id="faq">
     <div class="container py-5">
         <div class="row">

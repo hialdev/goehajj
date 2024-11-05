@@ -8,6 +8,7 @@ use App\Models\Jumbotron;
 use App\Models\Package;
 use App\Models\Partner;
 use App\Models\Proces;
+use App\Models\Timeline;
 use App\Models\Value;
 use Illuminate\Http\Request;
 
@@ -21,8 +22,8 @@ class PageController extends Controller
         $faqs = FAQ::all();
         $articles = Article::limit(5)->latest()->get();
         $partners = Partner::all();
-
-        return view('pages.index', compact('jumbo', 'values', 'process', 'packages', 'faqs', 'articles', 'partners'));
+        $timelines = Timeline::orderBy('tgl_masehi', 'asc')->get();
+        return view('pages.index', compact('jumbo', 'values', 'process', 'timelines', 'packages', 'faqs', 'articles', 'partners'));
     }
 
     public function news(Request $req){
